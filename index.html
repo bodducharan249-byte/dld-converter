@@ -3,188 +3,699 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>DLD Pro Toolkit</title>
+  <title>DLD Converter Toolkit</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <div class="page-shell">
-    <header class="hero">
-      <div class="hero-copy">
-        <span class="eyebrow">Digital Logic Design Toolkit</span>
-        <div class="identity-banner">
-          <div class="identity-card">
-            <span class="identity-label">Student</span>
-            <strong>Boddu Charan</strong>
-          </div>
-          <div class="identity-card">
-            <span class="identity-label">Enrollment No</span>
-            <strong>92500133037</strong>
-          </div>
-        </div>
-        <h1>DLD Converter Toolkit</h1>
-        <p>
-          A cleaner, faster number-system workspace for decimal, binary, octal, hexadecimal,
-          BCD, Excess-3, Gray code, parity checks, K-map generation, and logic helpers.
-        </p>
-      </div>
-      <div class="hero-panel">
-        <div class="metric">
-          <span class="metric-value">11</span>
-          <span class="metric-label">DLD tools</span>
-        </div>
-        <div class="metric">
-          <span class="metric-value">3</span>
-          <span class="metric-label">New lab helpers</span>
-        </div>
-        <div class="metric">
-          <span class="metric-value">1</span>
-          <span class="metric-label">Toolkit workspace</span>
-        </div>
-      </div>
-    </header>
-
-    <main class="grid">
-      <section class="card featured-card">
-        <div class="card-head">
-          <div>
-            <span class="chip">Most useful</span>
-            <h2>Universal Number Converter</h2>
-          </div>
-          <p>Enter a non-negative decimal value to generate all common logic-design formats.</p>
-        </div>
-        <div class="input-row">
-          <input id="dec" type="text" inputmode="numeric" placeholder="Example: 45">
-          <button onclick="decAll()">Convert</button>
-        </div>
-        <div id="decRes" class="result-panel"></div>
-      </section>
-
-      <section class="card">
-        <div class="card-head">
-          <h3>Binary Input</h3>
-          <p>Convert a binary value into multiple representations.</p>
-        </div>
-        <input id="bin" type="text" placeholder="Example: 101101">
-        <button onclick="binAll()">Convert</button>
-        <div id="binRes" class="result-panel"></div>
-      </section>
-
-      <section class="card">
-        <div class="card-head">
-          <h3>Octal Input</h3>
-          <p>Expand octal into decimal, binary, hexadecimal, Gray, and coded forms.</p>
-        </div>
-        <input id="oct" type="text" placeholder="Example: 57">
-        <button onclick="octAll()">Convert</button>
-        <div id="octRes" class="result-panel"></div>
-      </section>
-
-      <section class="card">
-        <div class="card-head">
-          <h3>Hex Input</h3>
-          <p>Decode hexadecimal input into standard digital representations.</p>
-        </div>
-        <input id="hex" type="text" placeholder="Example: 2D">
-        <button onclick="hexAll()">Convert</button>
-        <div id="hexRes" class="result-panel"></div>
-      </section>
-
-      <section class="card">
-        <div class="card-head">
-          <h3>BCD to Decimal</h3>
-          <p>Use 4-bit groups separated by spaces.</p>
-        </div>
-        <input id="bcd" type="text" placeholder="Example: 0100 0101">
-        <button onclick="bcdToDec()">Convert</button>
-        <div id="bcdRes" class="result-panel"></div>
-      </section>
-
-      <section class="card">
-        <div class="card-head">
-          <h3>Excess-3 to Decimal</h3>
-          <p>Decode each 4-bit Excess-3 block back to its decimal digits.</p>
-        </div>
-        <input id="ex3" type="text" placeholder="Example: 0111 1000">
-        <button onclick="ex3ToDec()">Convert</button>
-        <div id="ex3Res" class="result-panel"></div>
-      </section>
-
-      <section class="card">
-        <div class="card-head">
-          <h3>Gray Code</h3>
-          <p>Convert between binary and Gray code using the same input field.</p>
-        </div>
-        <input id="gray" type="text" placeholder="Example: 1011">
-        <div class="button-group">
-          <button onclick="binToGray()">Binary to Gray</button>
-          <button class="secondary-btn" onclick="grayToBin()">Gray to Binary</button>
-        </div>
-        <div id="grayRes" class="result-panel"></div>
-      </section>
-
-      <section class="card">
-        <div class="card-head">
-          <h3>Parity Checker</h3>
-          <p>Check the parity bits needed for any binary input.</p>
-        </div>
-        <input id="parity" type="text" placeholder="Example: 101101">
-        <button onclick="parityCheck()">Check</button>
-        <div id="parityRes" class="result-panel"></div>
-      </section>
-
-      <section class="card featured-card">
-        <div class="card-head">
-          <div>
-            <span class="chip">New tool</span>
-            <h2>K-Map Builder</h2>
-          </div>
-          <p>Generate 2, 3, or 4-variable Karnaugh maps from comma-separated minterms.</p>
-        </div>
-        <div class="form-split">
-          <input id="kmapVars" type="text" placeholder="Variables: 2, 3, or 4">
-          <input id="kmapMinterms" type="text" placeholder="Minterms: 0,1,2,5">
-        </div>
-        <button onclick="generateKMap()">Generate K-Map</button>
-        <div id="kmapRes" class="result-panel"></div>
-      </section>
-
-      <section class="card">
-        <div class="card-head">
-          <h3>Logic Gate Calculator</h3>
-          <p>Enter two bits and see the outputs of common logic gates instantly.</p>
-        </div>
-        <div class="form-split">
-          <input id="gateA" type="text" placeholder="Input A: 0 or 1">
-          <input id="gateB" type="text" placeholder="Input B: 0 or 1">
-        </div>
-        <button onclick="logicGateTool()">Evaluate Gates</button>
-        <div id="gateRes" class="result-panel"></div>
-      </section>
-
-      <section class="card">
-        <div class="card-head">
-          <h3>Binary Arithmetic</h3>
-          <p>Add or subtract two binary numbers and review carry or borrow details.</p>
-        </div>
-        <div class="form-split">
-          <input id="arithA" type="text" placeholder="First binary: 1010">
-          <input id="arithB" type="text" placeholder="Second binary: 0011">
-        </div>
-        <div class="button-group">
-          <button onclick="binaryArithmetic('add')">Add</button>
-          <button class="secondary-btn" onclick="binaryArithmetic('subtract')">Subtract</button>
-        </div>
-        <div id="arithRes" class="result-panel"></div>
-      </section>
-    </main>
-
-    <footer class="site-footer">
-      <p>Marwadi University</p>
-      <p>Information and Communication Technology</p>
-      <p>Boddu Charan</p>
-      <p>Enrollment No: 92500133037</p>
-    </footer>
+  <div class="circuit-bg" aria-hidden="true">
+    <span class="trace trace-a"></span>
+    <span class="trace trace-b"></span>
+    <span class="trace trace-c"></span>
+    <span class="node node-a"></span>
+    <span class="node node-b"></span>
+    <span class="node node-c"></span>
   </div>
+  <div class="ambient ambient-one"></div>
+  <div class="ambient ambient-two"></div>
+
+  <header class="navbar">
+    <a class="brand" href="#home" aria-label="DLD Converter Toolkit home">
+      <span class="brand-mark">DL</span>
+      <span>DLD Toolkit</span>
+    </a>
+    <nav class="nav-links" aria-label="Primary navigation">
+      <a href="#home">Home</a>
+      <a href="#converters">Converters</a>
+      <a href="#logic">Logic</a>
+      <a href="#tables">Tables</a>
+      <a href="#circuit-lab">Circuits</a>
+      <a href="#advanced-tools">Advanced</a>
+      <a href="#quiz">Quiz</a>
+    </nav>
+  </header>
+
+  <main id="home">
+    <section class="hero-section page-view" data-page="home">
+      <div class="hero-copy">
+        <span class="eyebrow">Academic digital logic lab</span>
+        <div class="hero-identity" aria-label="Student details">
+          <span><strong>Name</strong>Boddu Charan</span>
+          <span><strong>College</strong>Marwadi University</span>
+          <span><strong>Department</strong>Information and Communication Technology</span>
+        </div>
+        <h1>Digital Logic Design Converter Toolkit</h1>
+        <p>
+          Convert number systems, calculate complements, explore gates, generate truth tables,
+          and practice DLD concepts in one polished GitHub Pages project.
+        </p>
+        <div class="hero-stats" aria-label="Toolkit summary">
+          <span><strong>45+</strong> calculators</span>
+          <span><strong>100%</strong> static site</span>
+          <span><strong>Live</strong> simulations</span>
+        </div>
+        <div class="hero-actions">
+          <a class="primary-link" href="#converters">Start converting</a>
+          <a class="ghost-link" href="#logic">Explore logic tools</a>
+        </div>
+      </div>
+
+      <div class="hero-console" aria-label="Toolkit highlights">
+        <div class="pulse-ring"></div>
+        <div class="console-top">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+        <div class="signal-board">
+          <div class="signal-row">
+            <span>Binary</span>
+            <strong>101101</strong>
+          </div>
+          <div class="logic-path">
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+          <div class="signal-row">
+            <span>Hex</span>
+            <strong>2D</strong>
+          </div>
+          <div class="mini-gates">
+            <span>AND</span>
+            <span>XOR</span>
+            <span>NAND</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="converters" class="section-block page-view" data-page="converters">
+      <div class="section-heading">
+        <span class="eyebrow">Number systems</span>
+        <h2>Converters and core calculators</h2>
+      </div>
+
+      <div class="tool-grid">
+        <article class="tool-card wide-card">
+          <div class="card-title">
+            <span class="tool-icon">#</span>
+            <div>
+              <h3>Universal Number Converter</h3>
+              <p>Enter decimal and get binary, octal, hexadecimal, BCD, Excess-3, Gray code, and parity.</p>
+            </div>
+          </div>
+          <div class="input-row">
+            <input id="dec" type="text" inputmode="numeric" placeholder="Decimal value, e.g. 45">
+            <button onclick="decAll()">Convert</button>
+          </div>
+          <div id="decRes" class="result-panel"></div>
+        </article>
+
+        <article class="tool-card">
+          <div class="card-title">
+            <span class="tool-icon">01</span>
+            <div>
+              <h3>Binary to Decimal</h3>
+              <p>Convert binary into all major representations.</p>
+            </div>
+          </div>
+          <input id="bin" type="text" placeholder="Binary, e.g. 101101">
+          <button onclick="binAll()">Convert</button>
+          <div id="binRes" class="result-panel"></div>
+        </article>
+
+        <article class="tool-card">
+          <div class="card-title">
+            <span class="tool-icon">8</span>
+            <div>
+              <h3>Octal Converter</h3>
+              <p>Expand octal into decimal, binary, hex, BCD, and Gray.</p>
+            </div>
+          </div>
+          <input id="oct" type="text" placeholder="Octal, e.g. 57">
+          <button onclick="octAll()">Convert</button>
+          <div id="octRes" class="result-panel"></div>
+        </article>
+
+        <article class="tool-card">
+          <div class="card-title">
+            <span class="tool-icon">16</span>
+            <div>
+              <h3>Hexadecimal Converter</h3>
+              <p>Decode hexadecimal into standard DLD formats.</p>
+            </div>
+          </div>
+          <input id="hex" type="text" placeholder="Hex, e.g. 2D">
+          <button onclick="hexAll()">Convert</button>
+          <div id="hexRes" class="result-panel"></div>
+        </article>
+
+        <article class="tool-card">
+          <div class="card-title">
+            <span class="tool-icon">BCD</span>
+            <div>
+              <h3>BCD to Decimal</h3>
+              <p>Use valid 4-bit BCD groups separated by spaces.</p>
+            </div>
+          </div>
+          <input id="bcd" type="text" placeholder="0100 0101">
+          <button onclick="bcdToDec()">Convert</button>
+          <div id="bcdRes" class="result-panel"></div>
+        </article>
+
+        <article class="tool-card">
+          <div class="card-title">
+            <span class="tool-icon">+3</span>
+            <div>
+              <h3>Excess-3 to Decimal</h3>
+              <p>Decode each 4-bit Excess-3 block into decimal digits.</p>
+            </div>
+          </div>
+          <input id="ex3" type="text" placeholder="0111 1000">
+          <button onclick="ex3ToDec()">Convert</button>
+          <div id="ex3Res" class="result-panel"></div>
+        </article>
+
+        <article class="tool-card">
+          <div class="card-title">
+            <span class="tool-icon">GR</span>
+            <div>
+              <h3>Gray Code</h3>
+              <p>Convert binary to Gray code or Gray code to binary.</p>
+            </div>
+          </div>
+          <input id="gray" type="text" placeholder="1011">
+          <div class="button-group">
+            <button onclick="binToGray()">Binary to Gray</button>
+            <button class="secondary-btn" onclick="grayToBin()">Gray to Binary</button>
+          </div>
+          <div id="grayRes" class="result-panel"></div>
+        </article>
+
+        <article class="tool-card">
+          <div class="card-title">
+            <span class="tool-icon">P</span>
+            <div>
+              <h3>Parity Checker</h3>
+              <p>Find current parity plus even and odd parity bits.</p>
+            </div>
+          </div>
+          <input id="parity" type="text" placeholder="101101">
+          <button onclick="parityCheck()">Check</button>
+          <div id="parityRes" class="result-panel"></div>
+        </article>
+
+        <article class="tool-card">
+          <div class="card-title">
+            <span class="tool-icon">C</span>
+            <div>
+              <h3>1's and 2's Complement</h3>
+              <p>Calculate binary complements instantly.</p>
+            </div>
+          </div>
+          <input id="compInput" type="text" placeholder="Binary, e.g. 101100">
+          <button onclick="calculateComplements()">Calculate</button>
+          <div id="compRes" class="result-panel"></div>
+        </article>
+
+        <article class="tool-card">
+          <div class="card-title">
+            <span class="tool-icon">-</span>
+            <div>
+              <h3>Binary Subtraction</h3>
+              <p>Subtract two binary values with a step-by-step explanation.</p>
+            </div>
+          </div>
+          <div class="form-split">
+            <input id="subA" type="text" placeholder="Minuend, e.g. 1010">
+            <input id="subB" type="text" placeholder="Subtrahend, e.g. 0011">
+          </div>
+          <button onclick="binarySubtractionSteps()">Subtract</button>
+          <div id="subRes" class="result-panel"></div>
+        </article>
+
+        <article class="tool-card">
+          <div class="card-title">
+            <span class="tool-icon">+/-</span>
+            <div>
+              <h3>Binary Arithmetic</h3>
+              <p>Add or subtract two binary numbers and review carry or borrow details.</p>
+            </div>
+          </div>
+          <div class="form-split">
+            <input id="arithA" type="text" placeholder="First binary: 1010">
+            <input id="arithB" type="text" placeholder="Second binary: 0011">
+          </div>
+          <div class="button-group">
+            <button onclick="binaryArithmetic('add')">Add</button>
+            <button class="secondary-btn" onclick="binaryArithmetic('subtract')">Subtract</button>
+          </div>
+          <div id="arithRes" class="result-panel"></div>
+        </article>
+      </div>
+    </section>
+
+    <section id="logic" class="section-block page-view" data-page="logic">
+      <div class="section-heading">
+        <span class="eyebrow">Logic lab</span>
+        <h2>Boolean, gates, maps, and simulation</h2>
+      </div>
+
+      <div class="tool-grid">
+        <article class="tool-card wide-card">
+          <div class="card-title">
+            <span class="tool-icon">K</span>
+            <div>
+              <h3>K-Map Builder</h3>
+              <p>Generate 2, 3, or 4-variable Karnaugh maps from comma-separated minterms.</p>
+            </div>
+          </div>
+          <div class="form-split">
+            <input id="kmapVars" type="text" placeholder="Variables: 2, 3, or 4">
+            <input id="kmapMinterms" type="text" placeholder="Minterms: 0,1,2,5">
+          </div>
+          <button onclick="generateKMap()">Generate K-Map</button>
+          <div id="kmapRes" class="result-panel"></div>
+        </article>
+
+        <article class="tool-card">
+          <div class="card-title">
+            <span class="tool-icon">F</span>
+            <div>
+              <h3>Boolean Expression Simplifier</h3>
+              <p>Try expressions like A.B + A.C or A + A.B.</p>
+            </div>
+          </div>
+          <input id="boolExpr" type="text" placeholder="A.B + A.C">
+          <button onclick="simplifyBooleanExpression()">Simplify</button>
+          <div id="boolRes" class="result-panel"></div>
+        </article>
+
+        <article class="tool-card">
+          <div class="card-title">
+            <span class="tool-icon">G</span>
+            <div>
+              <h3>Logic Gate Calculator</h3>
+              <p>Enter two bits and see outputs of common logic gates.</p>
+            </div>
+          </div>
+          <div class="form-split">
+            <input id="gateA" type="text" placeholder="Input A: 0 or 1">
+            <input id="gateB" type="text" placeholder="Input B: 0 or 1">
+          </div>
+          <button onclick="logicGateTool()">Evaluate Gates</button>
+          <div id="gateRes" class="result-panel"></div>
+        </article>
+
+        <article class="tool-card simulator-card wide-card">
+          <div class="card-title">
+            <span class="tool-icon">SIM</span>
+            <div>
+              <h3>Logic Gate Simulator</h3>
+              <p>Select a gate, set inputs, and view output with a gate diagram-style display.</p>
+            </div>
+          </div>
+          <div class="sim-controls">
+            <select id="simGate" aria-label="Select logic gate">
+              <option>AND</option>
+              <option>OR</option>
+              <option>NOT</option>
+              <option>NAND</option>
+              <option>NOR</option>
+              <option>XOR</option>
+              <option>XNOR</option>
+            </select>
+            <label class="switch-field">A
+              <select id="simA">
+                <option>0</option>
+                <option>1</option>
+              </select>
+            </label>
+            <label class="switch-field">B
+              <select id="simB">
+                <option>0</option>
+                <option>1</option>
+              </select>
+            </label>
+            <button onclick="simulateGate()">Run</button>
+          </div>
+          <div id="simRes" class="gate-stage result-panel"></div>
+        </article>
+      </div>
+    </section>
+
+    <section id="tables" class="section-block page-view" data-page="tables">
+      <div class="section-heading">
+        <span class="eyebrow">Reference tables</span>
+        <h2>Truth tables and DLD building blocks</h2>
+      </div>
+
+      <div class="tool-grid">
+        <article class="tool-card wide-card">
+          <div class="card-title">
+            <span class="tool-icon">TT</span>
+            <div>
+              <h3>Truth Table Generator</h3>
+              <p>Input variable count and generate every input combination automatically.</p>
+            </div>
+          </div>
+          <div class="input-row">
+            <input id="truthVars" type="text" inputmode="numeric" placeholder="Number of variables, e.g. 3">
+            <button onclick="generateTruthTable()">Generate</button>
+          </div>
+          <div id="truthRes" class="result-panel"></div>
+        </article>
+
+        <article class="tool-card wide-card">
+          <div class="card-title">
+            <span class="tool-icon">FF</span>
+            <div>
+              <h3>Flip-Flop Excitation Tables</h3>
+              <p>SR, JK, D, and T flip-flop excitation references.</p>
+            </div>
+          </div>
+          <div id="flipFlopTables" class="result-panel static-panel"></div>
+        </article>
+
+        <article class="tool-card">
+          <div class="card-title">
+            <span class="tool-icon">UN</span>
+            <div>
+              <h3>Universal Gates</h3>
+              <p>NAND and NOR can implement any Boolean function.</p>
+            </div>
+          </div>
+          <div id="universalGates" class="result-panel static-panel"></div>
+        </article>
+
+        <article class="tool-card">
+          <div class="card-title">
+            <span class="tool-icon">ED</span>
+            <div>
+              <h3>Encoder and Decoder</h3>
+              <p>2 to 4 decoder and 4 to 2 encoder truth tables.</p>
+            </div>
+          </div>
+          <div id="encoderDecoder" class="result-panel static-panel"></div>
+        </article>
+
+        <article class="tool-card wide-card">
+          <div class="card-title">
+            <span class="tool-icon">MUX</span>
+            <div>
+              <h3>Multiplexer and Demultiplexer</h3>
+              <p>4:1 MUX and 1:4 DEMUX behavior with selection lines.</p>
+            </div>
+          </div>
+          <div id="muxDemux" class="result-panel static-panel"></div>
+        </article>
+      </div>
+    </section>
+
+    <section id="circuit-lab" class="section-block page-view" data-page="circuit-lab">
+      <div class="section-heading">
+        <span class="eyebrow">Circuit lab</span>
+        <h2>More DLD simulators and design helpers</h2>
+      </div>
+
+      <div class="tool-grid">
+        <article class="tool-card">
+          <div class="card-title">
+            <span class="tool-icon">HA</span>
+            <div>
+              <h3>Half Adder Simulator</h3>
+              <p>Enter A and B to calculate sum and carry.</p>
+            </div>
+          </div>
+          <div class="form-split">
+            <input id="halfA" type="text" placeholder="A: 0 or 1">
+            <input id="halfB" type="text" placeholder="B: 0 or 1">
+          </div>
+          <button onclick="simulateHalfAdder()">Simulate</button>
+          <div id="halfAdderRes" class="result-panel"></div>
+        </article>
+
+        <article class="tool-card">
+          <div class="card-title">
+            <span class="tool-icon">FA</span>
+            <div>
+              <h3>Full Adder Simulator</h3>
+              <p>Calculate Sum and Cout from A, B, and Cin.</p>
+            </div>
+          </div>
+          <div class="triple-grid">
+            <input id="fullA" type="text" placeholder="A">
+            <input id="fullB" type="text" placeholder="B">
+            <input id="fullCin" type="text" placeholder="Cin">
+          </div>
+          <button onclick="simulateFullAdder()">Simulate</button>
+          <div id="fullAdderRes" class="result-panel"></div>
+        </article>
+
+        <article class="tool-card">
+          <div class="card-title">
+            <span class="tool-icon">FS</span>
+            <div>
+              <h3>Full Subtractor Simulator</h3>
+              <p>Calculate Difference and Bout from A, B, and Bin.</p>
+            </div>
+          </div>
+          <div class="triple-grid">
+            <input id="fullSubA" type="text" placeholder="A">
+            <input id="fullSubB" type="text" placeholder="B">
+            <input id="fullSubBin" type="text" placeholder="Bin">
+          </div>
+          <button onclick="simulateFullSubtractor()">Simulate</button>
+          <div id="fullSubRes" class="result-panel"></div>
+        </article>
+
+        <article class="tool-card">
+          <div class="card-title">
+            <span class="tool-icon">CMP</span>
+            <div>
+              <h3>Binary Comparator</h3>
+              <p>Compare two binary values and show A &gt; B, A = B, or A &lt; B.</p>
+            </div>
+          </div>
+          <div class="form-split">
+            <input id="compA" type="text" placeholder="A, e.g. 1010">
+            <input id="compB" type="text" placeholder="B, e.g. 1001">
+          </div>
+          <button onclick="compareBinaryValues()">Compare</button>
+          <div id="compareRes" class="result-panel"></div>
+        </article>
+
+        <article class="tool-card wide-card">
+          <div class="card-title">
+            <span class="tool-icon">SOP</span>
+            <div>
+              <h3>Canonical SOP and POS Generator</h3>
+              <p>Enter variable count and minterms to generate canonical forms.</p>
+            </div>
+          </div>
+          <div class="form-split">
+            <input id="canonVars" type="text" placeholder="Variables: 2, 3, or 4">
+            <input id="canonMinterms" type="text" placeholder="Minterms: 0,1,3">
+          </div>
+          <button onclick="generateCanonicalForms()">Generate Forms</button>
+          <div id="canonicalRes" class="result-panel"></div>
+        </article>
+
+        <article class="tool-card">
+          <div class="card-title">
+            <span class="tool-icon">DM</span>
+            <div>
+              <h3>De Morgan Law Verifier</h3>
+              <p>Test NOT(A.B) = A' + B' and NOT(A+B) = A'.B'.</p>
+            </div>
+          </div>
+          <div class="form-split">
+            <input id="deMorganA" type="text" placeholder="A: 0 or 1">
+            <input id="deMorganB" type="text" placeholder="B: 0 or 1">
+          </div>
+          <button onclick="verifyDeMorgan()">Verify</button>
+          <div id="deMorganRes" class="result-panel"></div>
+        </article>
+
+        <article class="tool-card">
+          <div class="card-title">
+            <span class="tool-icon">CTR</span>
+            <div>
+              <h3>Binary Counter Simulator</h3>
+              <p>Generate up-counter states for 2 to 5 bits.</p>
+            </div>
+          </div>
+          <div class="input-row">
+            <input id="counterBits" type="text" placeholder="Bits, e.g. 3">
+            <button onclick="simulateCounter()">Run Counter</button>
+          </div>
+          <div id="counterRes" class="result-panel"></div>
+        </article>
+
+        <article class="tool-card wide-card">
+          <div class="card-title">
+            <span class="tool-icon">SRG</span>
+            <div>
+              <h3>Shift Register Simulator</h3>
+              <p>Shift a 4-bit register left or right with serial input.</p>
+            </div>
+          </div>
+          <div class="triple-grid">
+            <input id="shiftRegister" type="text" placeholder="Register, e.g. 1011">
+            <input id="shiftSerial" type="text" placeholder="Serial input: 0 or 1">
+            <select id="shiftDirection" aria-label="Shift direction">
+              <option value="right">Shift Right</option>
+              <option value="left">Shift Left</option>
+            </select>
+          </div>
+          <button onclick="simulateShiftRegister()">Shift</button>
+          <div id="shiftRes" class="result-panel"></div>
+        </article>
+      </div>
+    </section>
+
+    <section id="advanced-tools" class="section-block page-view" data-page="advanced-tools">
+      <div class="section-heading">
+        <span class="eyebrow">Advanced conversions</span>
+        <h2>More digital logic design helpers</h2>
+      </div>
+
+      <div class="tool-grid">
+        <article class="tool-card">
+          <div class="card-title">
+            <span class="tool-icon">SM</span>
+            <div>
+              <h3>Signed Magnitude Converter</h3>
+              <p>Convert decimal values into signed magnitude binary.</p>
+            </div>
+          </div>
+          <div class="form-split">
+            <input id="signedDecimal" type="text" placeholder="Decimal, e.g. -13">
+            <input id="signedBits" type="text" placeholder="Total bits, e.g. 8">
+          </div>
+          <button onclick="convertSignedMagnitude()">Convert</button>
+          <div id="signedMagRes" class="result-panel"></div>
+        </article>
+
+        <article class="tool-card">
+          <div class="card-title">
+            <span class="tool-icon">2C</span>
+            <div>
+              <h3>2's Complement to Decimal</h3>
+              <p>Decode signed two's-complement binary into decimal.</p>
+            </div>
+          </div>
+          <input id="twosToDecInput" type="text" placeholder="Binary, e.g. 11110011">
+          <button onclick="convertTwosComplementToDecimal()">Decode</button>
+          <div id="twosToDecRes" class="result-panel"></div>
+        </article>
+
+        <article class="tool-card">
+          <div class="card-title">
+            <span class="tool-icon">BCD+</span>
+            <div>
+              <h3>Decimal to BCD and Excess-3</h3>
+              <p>Encode decimal digits directly into BCD and Excess-3.</p>
+            </div>
+          </div>
+          <input id="digitCodeInput" type="text" placeholder="Decimal digits, e.g. 2026">
+          <button onclick="encodeDecimalDigitCodes()">Encode</button>
+          <div id="digitCodeRes" class="result-panel"></div>
+        </article>
+
+        <article class="tool-card">
+          <div class="card-title">
+            <span class="tool-icon">ASC</span>
+            <div>
+              <h3>ASCII to Binary Converter</h3>
+              <p>Convert text characters into 8-bit ASCII binary.</p>
+            </div>
+          </div>
+          <input id="asciiInput" type="text" placeholder="Text, e.g. DLD">
+          <div class="button-group">
+            <button onclick="asciiToBinary()">Text to Binary</button>
+            <button class="secondary-btn" onclick="binaryToAscii()">Binary to Text</button>
+          </div>
+          <div id="asciiRes" class="result-panel"></div>
+        </article>
+
+        <article class="tool-card wide-card">
+          <div class="card-title">
+            <span class="tool-icon">HAM</span>
+            <div>
+              <h3>Hamming Code Generator</h3>
+              <p>Generate Hamming(7,4) code with even parity for 4 data bits.</p>
+            </div>
+          </div>
+          <input id="hammingInput" type="text" placeholder="4 data bits, e.g. 1011">
+          <button onclick="generateHammingCode()">Generate Hamming Code</button>
+          <div id="hammingRes" class="result-panel"></div>
+        </article>
+
+        <article class="tool-card">
+          <div class="card-title">
+            <span class="tool-icon">BIT</span>
+            <div>
+              <h3>Bitwise Operation Calculator</h3>
+              <p>Run AND, OR, XOR, NAND, NOR, and XNOR on binary strings.</p>
+            </div>
+          </div>
+          <div class="form-split">
+            <input id="bitwiseA" type="text" placeholder="A, e.g. 1100">
+            <input id="bitwiseB" type="text" placeholder="B, e.g. 1010">
+          </div>
+          <button onclick="calculateBitwiseOperations()">Calculate</button>
+          <div id="bitwiseRes" class="result-panel"></div>
+        </article>
+
+        <article class="tool-card">
+          <div class="card-title">
+            <span class="tool-icon">GRP</span>
+            <div>
+              <h3>Binary Grouping Converter</h3>
+              <p>Group binary bits into octal and hexadecimal conversion blocks.</p>
+            </div>
+          </div>
+          <input id="groupBinaryInput" type="text" placeholder="Binary, e.g. 111010101">
+          <button onclick="convertBinaryGroups()">Group and Convert</button>
+          <div id="groupBinaryRes" class="result-panel"></div>
+        </article>
+
+        <article class="tool-card wide-card">
+          <div class="card-title">
+            <span class="tool-icon">MIN</span>
+            <div>
+              <h3>Minterm and Maxterm Finder</h3>
+              <p>Enter a truth-table output column and find minterms and maxterms.</p>
+            </div>
+          </div>
+          <div class="form-split">
+            <input id="termVars" type="text" placeholder="Variables: 2, 3, or 4">
+            <input id="truthOutputBits" type="text" placeholder="Outputs, e.g. 0111">
+          </div>
+          <button onclick="findMintermsMaxterms()">Find Terms</button>
+          <div id="termsRes" class="result-panel"></div>
+        </article>
+      </div>
+    </section>
+
+    <section id="quiz" class="section-block page-view" data-page="quiz">
+      <div class="section-heading">
+        <span class="eyebrow">Practice</span>
+        <h2>DLD Quiz</h2>
+      </div>
+      <article class="tool-card quiz-card">
+        <div id="quizList" class="quiz-list"></div>
+        <button onclick="checkQuizAnswers()">Check answers</button>
+        <div id="quizRes" class="result-panel"></div>
+      </article>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>Digital Logic Design Converter Toolkit | Created for Academic Project</p>
+  </footer>
 
   <script src="script.js"></script>
 </body>
