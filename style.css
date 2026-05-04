@@ -253,6 +253,10 @@ main {
   animation: pageEnter 0.48s ease both;
 }
 
+.page-view:not(.active-page) {
+  display: none !important;
+}
+
 .hero-section.page-view.active-page {
   display: grid;
 }
