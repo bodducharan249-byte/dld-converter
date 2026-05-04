@@ -268,15 +268,17 @@ main {
 .hero-section {
   min-height: auto;
   display: grid;
-  grid-template-columns: minmax(0, 1.02fr) minmax(330px, 0.78fr);
-  gap: 28px;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 0;
   align-items: center;
-  padding: 46px 0 28px;
+  padding: 42px 0 28px;
 }
 
 .hero-copy {
   position: relative;
-  padding: 30px;
+  width: min(980px, 100%);
+  margin: 0 auto;
+  padding: 34px;
   border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: 28px;
   background: linear-gradient(180deg, rgba(255, 255, 255, 0.055), rgba(255, 255, 255, 0.025));
@@ -309,7 +311,7 @@ p {
 }
 
 h1 {
-  max-width: 680px;
+  max-width: 840px;
   margin-bottom: 16px;
   font-size: clamp(2.55rem, 5.2vw, 4.9rem);
   line-height: 0.98;
@@ -329,7 +331,7 @@ h3 {
 }
 
 .hero-copy p {
-  max-width: 650px;
+  max-width: 780px;
   color: var(--muted);
   font-size: 1rem;
   line-height: 1.65;
@@ -339,7 +341,7 @@ h3 {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 8px;
-  max-width: 760px;
+  max-width: 860px;
   margin: 0 0 18px;
 }
 
@@ -367,7 +369,7 @@ h3 {
   display: flex;
   flex-wrap: wrap;
   gap: 10px;
-  max-width: 650px;
+  max-width: 780px;
   margin: 20px 0 0;
 }
 
