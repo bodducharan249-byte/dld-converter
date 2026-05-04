@@ -262,15 +262,22 @@ main {
 }
 
 .hero-section {
-  min-height: calc(100vh - 70px);
+  min-height: auto;
   display: grid;
-  grid-template-columns: minmax(0, 1.06fr) minmax(340px, 0.94fr);
-  gap: 34px;
+  grid-template-columns: minmax(0, 1.02fr) minmax(330px, 0.78fr);
+  gap: 28px;
   align-items: center;
-  padding: 72px 0 46px;
+  padding: 46px 0 28px;
 }
 
 .hero-copy {
+  position: relative;
+  padding: 30px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 28px;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.055), rgba(255, 255, 255, 0.025));
+  box-shadow: 0 24px 70px rgba(0, 0, 0, 0.26);
+  backdrop-filter: blur(18px);
   animation: riseIn 0.8s ease both;
 }
 
@@ -298,10 +305,10 @@ p {
 }
 
 h1 {
-  max-width: 820px;
-  margin-bottom: 20px;
-  font-size: clamp(3rem, 7.3vw, 6.85rem);
-  line-height: 0.9;
+  max-width: 680px;
+  margin-bottom: 16px;
+  font-size: clamp(2.55rem, 5.2vw, 4.9rem);
+  line-height: 0.98;
   letter-spacing: 0;
 }
 
@@ -318,24 +325,26 @@ h3 {
 }
 
 .hero-copy p {
-  max-width: 720px;
+  max-width: 650px;
   color: var(--muted);
-  font-size: 1.08rem;
-  line-height: 1.7;
+  font-size: 1rem;
+  line-height: 1.65;
 }
 
 .hero-identity {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 10px;
-  max-width: 820px;
-  margin: 0 0 22px;
+  gap: 8px;
+  max-width: 760px;
+  margin: 0 0 18px;
 }
 
 .hero-identity span {
   display: grid;
-  gap: 5px;
-  padding: 13px 14px;
+  gap: 4px;
+  min-height: 88px;
+  align-content: center;
+  padding: 12px 13px;
   border: 1px solid rgba(255, 255, 255, 0.13);
   border-radius: 14px;
   color: var(--ink);
@@ -351,19 +360,20 @@ h3 {
 }
 
 .hero-stats {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 12px;
-  max-width: 690px;
-  margin: 28px 0 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  max-width: 650px;
+  margin: 20px 0 0;
 }
 
 .hero-stats span {
-  display: grid;
-  gap: 4px;
-  padding: 15px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 9px 12px;
   border: 1px solid var(--line);
-  border-radius: 18px;
+  border-radius: 999px;
   color: var(--muted);
   background: rgba(255, 255, 255, 0.06);
   backdrop-filter: blur(18px);
@@ -384,7 +394,7 @@ h3 {
 }
 
 .hero-actions {
-  margin-top: 26px;
+  margin-top: 22px;
 }
 
 .primary-link,
@@ -463,9 +473,9 @@ button:active,
 }
 
 .hero-console {
-  min-height: 460px;
-  padding: 24px;
-  border-radius: 28px;
+  min-height: 360px;
+  padding: 20px;
+  border-radius: 24px;
   animation: hoverConsole 5.5s ease-in-out infinite;
 }
 
@@ -512,7 +522,7 @@ button:active,
   align-items: center;
   justify-content: space-between;
   gap: 18px;
-  padding: 20px;
+  padding: 17px;
   border: 1px solid var(--line);
   border-radius: 18px;
   background: rgba(255, 255, 255, 0.075);
@@ -562,7 +572,7 @@ button:active,
 
 .mini-gates span {
   display: grid;
-  min-height: 78px;
+  min-height: 64px;
   place-items: center;
   border: 1px solid rgba(255, 255, 255, 0.24);
   border-radius: 16px 38px 38px 16px;
@@ -1189,11 +1199,11 @@ select {
   .hero-section {
     min-height: auto;
     grid-template-columns: 1fr;
-    padding-top: 44px;
+    padding-top: 28px;
   }
 
   .hero-console {
-    min-height: 380px;
+    min-height: 320px;
   }
 
   .student-strip {
@@ -1246,6 +1256,7 @@ select {
   }
 
   .hero-stats {
+    display: grid;
     grid-template-columns: 1fr;
   }
 
@@ -1254,9 +1265,14 @@ select {
   }
 
   .hero-console,
+  .hero-copy,
   .tool-card,
   .section-block {
     border-radius: 18px;
+  }
+
+  .hero-copy {
+    padding: 20px;
   }
 
   .section-block {
